@@ -1,0 +1,117 @@
+.app-container {
+  text-align: center;
+  background-color: black;
+}
+
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../rickAndMorty.webp'); /* Replace 'your-image.jpg' with your actual image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.portal-button {
+  font-family: 'Arial', sans-serif;
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: #fbff02;
+  background: linear-gradient(145deg, #00ff00, #ff0000);
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 1px 1px 20px 5px #000000;
+  outline: none;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  -webkit-text-stroke: 2.5px rgb(23, 23, 22);
+  transition: transform 0.2s ease-in-out;
+}
+
+.portal-button:active {
+  transform: translate(-2px, 2px);
+}
+
+.portal-button:hover {
+  transform: scale(1.05); 
+  box-shadow: 0px 0px 30px 8px #00ff00;
+}
+
+.container-page{
+  background-color: #000000;
+}
+
+h1{
+  color: #00ff00;
+  font-size: 5rem;
+  margin-top: 0px;
+  padding-top: 0.5em;
+}
+
+.character-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* margin-top: 40px; */
+}
+
+.character-card {
+  margin: 10px;
+  border: 1px solid #ccc;
+  padding: 15px;
+  width: 200px;
+  color: #151515;
+  font-size: 1.5em;
+  background-color: #00ff00a9;
+}
+
+.character-image {
+  width: 100%;
+}
+
+.pagination-controls {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.pagination-button {
+  background-color: #00ff00;
+  color: #000; 
+  border:none;
+  padding: 15px 20px; 
+  cursor: pointer;
+  font-size: 35px; 
+  font-weight: bold;
+  border-radius: 5px;
+  margin-left: 1em;
+  margin-right: 1em;
+  box-shadow: 5px 5px 15px #fbff02; /* Add a shadow */
+}
+
+.pagination-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.loading-container {
+  background-color: black;
+  color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.loading-text {
+  font-size: 24px;
+  font-weight: bold;
+}
