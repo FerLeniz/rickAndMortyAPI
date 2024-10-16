@@ -1,0 +1,46 @@
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../../rickAndMorty.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+}
+
+.portal-button {
+  font-family: 'Arial', sans-serif;
+  font-size: 2.1rem;
+  font-weight: bold;
+  color: #fbff02;
+  background: linear-gradient(145deg, #00ff00, #ff0000);
+  border: none;
+  padding: 15px 40px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 1px 1px 20px 5px #000000;
+  outline: none;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  -webkit-text-stroke: 2.5px rgb(23, 23, 22);
+  transition: transform 0.2s ease-in-out;
+}
+
+.portal-button:active {
+  transform: translate(-2px, 2px);
+}
+
+.portal-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 0px 30px 8px #00ff00;
+}
+
+.container-page {
+  background-color: #000000;
+}
