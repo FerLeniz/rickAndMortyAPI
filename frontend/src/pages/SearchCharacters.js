@@ -1,23 +1,39 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from "../components/Navbar";
-import './SearchCharacters.css'
+import './SearchCharacters.css';
 
 function SearchCharacter() {
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
 
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
+    setErrorMessage(null);
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault();
-    const responseAPI = await fetch(`https://rickandmortyapi.com/api/character/?name=${searchTerm}`);
-    const apiData = await responseAPI.json();
-    // console.log("DATA FROM API:");
-    // console.log(apiData)
-    // Check the case when the users write an unexpected name
-    setSearchResults(apiData.results)
+    try {
+      event.preventDefault();
+      const responseAPI = await fetch(`https://rickandmortyapi.com/api/character/?name=${searchTerm}`);
+
+      if (!responseAPI.ok) {
+        throw new Error(`Network response was not ok (status: ${responseAPI.status})`);
+      }
+
+      const apiData = await responseAPI.json();
+
+      if (apiData.results.length === 0) {
+        console.log("DEBERIA CAER ACAAA !")
+        setErrorMessage("No characters found for your search term.");
+      } else {
+        setSearchResults(apiData.results);
+      }
+    } catch (error) {
+      console.error("Error fetching characters:", error);
+      setErrorMessage("An error occurred while fetching characters. Please other name");
+      setSearchResults([]);
+    }
   };
 
   return (
@@ -34,15 +50,22 @@ function SearchCharacter() {
           />
           <button type="submit" className="search-bar-button">Search</button>
         </form>
-        <div className="search-results">
-          {/* ADJUST CARD DESIGN */}
-          {searchResults.map((character) => (
-            <div key={character.id} className="search-result">
-              <img src={character.image} alt={character.name} className="search-result-image" />
-              <p className="search-result-name">{character.name}</p>
+        {searchResults.length > 0 && (
+          <>
+            <p className="text-search">Characters:</p>
+            <div className="search-results">
+              {searchResults.map((character) => (
+                <div key={character.id} className="search-result">
+                  <img src={character.image} alt={character.name} className="search-result-image" />
+                  <p className="search-result-name">{character.name}</p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </>
+        )}
+        {errorMessage && <div className="error-container">
+          <p className="error-message">{errorMessage}</p>
+        </div>}
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-.search-container{
+.search-container {
     background-color: #121010;
     display: flex;
     flex-direction: column;
@@ -42,16 +42,18 @@
     margin-top: 20px;
     width: 100%;
     display: flex;
-    flex-wrap: wrap; /* This is the key property to enable wrapping */
+    flex-wrap: wrap;
 }
 
 .search-result {
     display: flex;
     align-items: center;
-    /* margin-bottom: 10px; */
-    width: 250px; /* Adjust the width as needed */
-    margin: 30px; /* Add margin for spacing between cards */
-    background-color: #ffcc00;;
+    padding: 15px;
+    width: 300px;
+    margin: 25px;
+    background-color: #ffcc00ad;
+    border-radius: 20px;
+    ;
 }
 
 .search-result-image {
@@ -64,5 +66,22 @@
 .search-result-name {
     color: rgb(34, 36, 36);
     font-weight: bold;
-    font-size: 18px;
+    font-size: 25px;
+}
+
+/* ERROR MESSAGE */
+.error-container {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.error-message {
+    font-size: 4em;
+    color: #ffcc00;
+}
+
+.text-search{
+    color: rgb(239, 239, 22);
+    font-size: 5em;
+    margin: 0;
 }
