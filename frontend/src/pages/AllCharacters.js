@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './AllCharacters.css'
 import Navbar from '../components/Navbar';
+import { Card } from '../components/Card';
 
 const AllCharacters = () => {
     const [characters, setCharacters] = useState([]);
@@ -59,20 +60,7 @@ const AllCharacters = () => {
                         <p className="loading-text">Loading...</p>
                     </div>
                 ) : (
-                    <div className="character-grid">
-                        {characters.map((character) => (
-                            <div key={character.id} className="character-card">
-                                <img src={character.image} alt={character.name} className="character-image" />
-                                <h2>{character.name}</h2>
-                                <p><strong>Status:</strong> {character.status}</p>
-                                <p><strong>Species:</strong> {character.species}</p>
-                                <p><strong>Gender:</strong> {character.gender}</p>
-                                <p><strong>Origin:</strong> {character.origin.name}</p>
-                                <p><strong>Location:</strong> {character.location.name}</p>
-                                <p><strong>Appearances:</strong> {character.episode.length}</p>
-                            </div>
-                        ))}
-                    </div>
+                    <Card characters={characters}/>
                 )}
             </div>
         </div>
