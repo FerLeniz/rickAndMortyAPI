@@ -46,7 +46,6 @@ const AllCharacters = () => {
             <div className='container-page'>
                 <Navbar />
                 <h1>Rick and Morty Characters (Page {page} of {totalPages})</h1>
-                {/* BUTTON */}
                 <div className="pagination-controls">
                     <button onClick={handlePrevious} disabled={page === 1} className="pagination-button">
                         Previous page

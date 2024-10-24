@@ -11,6 +11,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    background-color: #121010;
 }
 
 .search-bar-input {
@@ -33,7 +34,7 @@
     margin-left: 30px;
     background-color: #303030;
     border: 1px solid #444444;
-    color: #ffcc00;
+    color: #00ff00;
     font-weight: bold;
 }
 
@@ -77,11 +78,11 @@
 
 .error-message {
     font-size: 4em;
-    color: #ffcc00;
+    color: #00ff00;
 }
 
 .text-search{
-    color: rgb(239, 239, 22);
+    color:#00ff00;
     font-size: 5em;
     margin: 0;
 }
