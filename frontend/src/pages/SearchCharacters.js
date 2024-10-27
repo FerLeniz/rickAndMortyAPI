@@ -8,15 +8,18 @@ function SearchCharacter() {
   const [searchResults, setSearchResults] = useState([]);
   const [totalResults, setTotalResults] = useState(0)
   const [errorMessage, setErrorMessage] = useState(null);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   const handleInputChange = (event) => {
     setSearchTerm(event.target.value);
+    setSearchQuery(event.target.value)
+    setShowSuggestions(true)
     setErrorMessage(null);
   };
 
   const handleSubmit = async (event) => {
     try {
-      event.preventDefault();
+       event.preventDefault();
       const responseAPI = await fetch(`https://rickandmortyapi.com/api/character/?name=${searchTerm}`);
 
       if (!responseAPI.ok) {
@@ -27,9 +30,11 @@ function SearchCharacter() {
 
       if (apiData.results.length === 0) {
         setErrorMessage("No characters found for your search term.");
+        setShowSuggestions(false)
       } else {
         setSearchResults(apiData.results);
         setTotalResults(apiData.info.count)
+        setShowSuggestions(false)
       }
     } catch (error) {
       console.error("Error fetching characters:", error);
@@ -38,11 +43,20 @@ function SearchCharacter() {
     }
   };
 
+  const options = [
+    'Rick Sanchez',
+    'Morty Smith',
+    'Summer Smith',
+    'Beth Smith',
+    'Jerry Smith'
+  ];
+  const [searchQuery, setSearchQuery] = useState('');
+
   return (
     <div className="search-container">
       <Navbar />
       <div className="search-bar-container">
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} >
           <input
             type="text"
             placeholder="Search for a Rick and Morty character"
@@ -52,16 +66,25 @@ function SearchCharacter() {
           />
           <button type="submit" className="search-bar-button">Search</button>
         </form>
-        {searchResults.length > 0 && (
-          <>
-            <p className="text-search">Characters: {totalResults}</p>
-            <Card characters={searchResults} />
-          </>
+        {showSuggestions && (
+          <ul className="suggestion-list">
+            {options.filter((option) => option.toLowerCase().includes(searchQuery.toLowerCase())).map((option) => (
+              <li key={option} onClick={handleSubmit}>
+                {option}
+              </li>
+            ))}
+          </ul>
         )}
-        {errorMessage && <div className="error-container">
-          <p className="error-message">{errorMessage}</p>
-        </div>}
       </div>
+      {searchResults.length > 0 && (
+        <>
+          <p className="text-search">Total: {totalResults}</p>
+          <Card characters={searchResults} />
+        </>
+      )}
+      {errorMessage && <div className="error-container">
+        <p className="error-message">{errorMessage}</p>
+      </div>}
     </div>
   );
 }

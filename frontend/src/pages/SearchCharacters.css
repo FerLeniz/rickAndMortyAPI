@@ -1,11 +1,11 @@
 .search-container {
     background-color: #121010;
-    display: flex;
-    flex-direction: column;
     height: 100vh;
 }
 
+/* SEARCH BAR  */
 .search-bar-container {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -38,36 +38,31 @@
     font-weight: bold;
 }
 
-.search-results {
-    background-color: #121010;
-    margin-top: 20px;
-    width: 100%;
+.suggestion-list {
+    position: absolute;
+    top: 100%;
+    /* left: 30.6%; JUST IN CASE,IF I WANT TO ADD RESPONSIVE DESING*/
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column; 
+    /* width: 100%; */
+    width: 600px;
+    max-width: 500px;
+    color: #999999;
+    background-color: #333333;
+    border: 1px solid #444444;
+    list-style: none;
+    z-index: 1;
 }
 
-.search-result {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    width: 300px;
-    margin: 25px;
-    background-color: #ffcc00ad;
-    border-radius: 20px;
-    ;
+.suggestion-list li{
+    padding: 8px;
 }
 
-.search-result-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.search-result-name {
-    color: rgb(34, 36, 36);
-    font-weight: bold;
-    font-size: 25px;
+.suggestion-list li:hover{
+    background-color: #999995;
+    width: 95%;
+    color: #00ff00;
+    cursor: pointer;
 }
 
 /* ERROR MESSAGE */
@@ -81,8 +76,8 @@
     color: #00ff00;
 }
 
-.text-search{
-    color:#00ff00;
+.text-search {
+    color: #00ff00;
     font-size: 5em;
     margin: 0;
 }
