@@ -7,20 +7,58 @@
 }
 
 .character-card {
+    display: flex;
+    align-items: flex-start;
     margin: 10px;
     border: 4px solid #ccc;
     border-radius: 4%;
     padding: 15px;
-    width: 11em;
+    width: 16.51em;
     color: #151515;
-    font-size: 1.5em;
+    font-size: 1em;
     background-color: #00ff00;
 }
 
 .character-image {
-    width: 100%;
+    width: 8em; 
+    height: 10em;
+    margin-right: 10px;
+    border-radius: 8px;
 }
 
-.character-card p {
-    font-size: 1.1em;
+.character-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    
+}
+
+.character-details p {
+    margin: 5px 0; 
+    font-size: 1em;
+}
+
+.character-details h2 {
+    margin-bottom: 2px;
+    font-size: 1em;
+}
+
+.status-text {
+    padding: 5px 10px; 
+    border-radius: 5px;
+    color: #ffffff;
+    display: inline-block;
+}
+
+.alive {
+    background-color: #28a745; 
+}
+
+.dead {
+    background-color: #dc3545; 
+}
+
+.unknown {
+    background-color: #6c757d;
 }

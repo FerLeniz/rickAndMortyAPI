@@ -9,13 +9,11 @@ export const Card = (props) => {
             {characters.map((character) => (
                 <div key={character.id} className="character-card">
                     <img src={character.image} alt={character.name} className="character-image" />
-                    <h2>{character.name}</h2>
-                    <p><strong>Status:</strong> {character.status}</p>
-                    <p><strong>Species:</strong> {character.species}</p>
-                    <p><strong>Gender:</strong> {character.gender}</p>
-                    <p><strong>Origin:</strong> {character.origin.name}</p>
-                    <p><strong>Location:</strong> {character.location.name}</p>
-                    <p><strong>Appearances:</strong> {character.episode.length}</p>
+                    <div className="character-details">
+                        <h2>{character.name}</h2>
+                        <p>{character.gender}</p>
+                        <p className={`status-text ${character.status.toLowerCase()}`}>{character.status}</p>
+                    </div>
                 </div>
             ))}
         </div>
