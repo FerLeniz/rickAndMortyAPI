@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     background-color: #121010;
 }
 
@@ -47,7 +47,7 @@
     /* width: 100%; */
     width: 600px;
     max-width: 500px;
-    color: #999999;
+    color: #999999; 
     background-color: #333333;
     border: 1px solid #444444;
     list-style: none;
@@ -77,7 +77,15 @@
 }
 
 .text-search {
+    text-align: center;
     color: #00ff00;
-    font-size: 5em;
+    font-size: 3em;
     margin: 0;
+}
+
+.total-and-buttons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
